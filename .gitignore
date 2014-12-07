@@ -1,0 +1,12 @@
+**/report/*.pdf
+**/report/*.log
+**/report/*.out
+**/report/*.aux
+**/report/*.blg
+**/report/*.bbl
+**/report/*.synctex.gz
+*.swp
+*~
+**/build
+**/dist
+*.~lock.*
