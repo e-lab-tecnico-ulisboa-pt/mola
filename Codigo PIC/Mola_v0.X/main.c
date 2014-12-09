@@ -26,12 +26,15 @@ int main() {
     init_TMR2();
     init_OC2();
 
-    duty = 180;
-    //A patricia quer fazer pull
+    init_TMR4(); //Comunicação
+
+    srv = 180;
 
     while (1) {
-        pull_UART2();
-        OC2RS = 332+358*duty/90; //Duty Time
+        pull_UART2();//Actualiza a variavel pos
+        push_UART2();//Envia as variaveis pos, srv, fr
+        
+        OC2RS = 332+358*srv/90; //Duty Time
     }
 
 

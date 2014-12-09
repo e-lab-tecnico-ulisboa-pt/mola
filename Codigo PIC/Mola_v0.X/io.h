@@ -17,7 +17,7 @@
 #define BOTAO   !PORTEbits.RE8
 
 
-#define FCY ((long) 73728*4) 		//instruction frequency in kHz
+#define FCY ((long) 73728*4) 		//instruction frequency in 10^2 Hz
 
 extern void init_io(void);
 

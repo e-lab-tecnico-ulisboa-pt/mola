@@ -14,7 +14,7 @@ void init_OC2(void) {
     OC2CONbits.OCFLT = 0;
     OC2CONbits.OCTSEL = 0; //Timer2 is the clock source for compare 2
     OC2CONbits.OCM = 0x6;
-    OC2RS = 332+358*duty/90; //Duty Time
+    OC2RS = 332+358*srv/90; //Duty Time
 
 }
 
