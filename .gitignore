@@ -8,5 +8,4 @@
 *.swp
 *~
 **/build
-**/dist
 *.~lock.*

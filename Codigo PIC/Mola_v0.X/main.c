@@ -27,6 +27,7 @@ int main() {
     init_OC2();
 
     duty = 180;
+    //A patricia quer fazer pull
 
     while (1) {
         pull_UART2();
