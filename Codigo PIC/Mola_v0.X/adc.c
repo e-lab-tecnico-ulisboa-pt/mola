@@ -34,15 +34,15 @@ void init_ADC(void) {
     //Leituras feitas pelo channel 0
     //ADCHSbits.CH0NA = 0; //Channel 0 negative input is VREF- for MUX A Secalhar não é preciso por negativos
     ADCHSbits.CH0SA = 0; //Channel 0 positive input is AN0  for MUX A
-    //ADCHSbits.CH0NB = 0; //Channel 0 negative input is VREF- for MUX B (not sure)
+    //ADCHSbits.CH0NB = 0; //Channel 0 negative input is VREF- for MUX B 
     ADCHSbits.CH0SB = 1; //Channel 0 positive input is AN1   for MUX B
 
-    //ADCSSL = 0b0000000000000001; //Select AN2, AN3 for input scan (NÃO SEI)
+    //ADCSSL = 0b0000000000000001; //
 
     ADCON1bits.ADON = 1; //A/D converter module is operating
     IFS0bits.ADIF = 0; //clear adc interrupt flag
-    IEC0bits.ADIE = 1; //enable adc end of sampling */
-
+    IEC0bits.ADIE = 1; //enable adc end of sampling 
+*/
     unsigned int ADCvar1, ADCvar2, ADCvar3, PINCONFIG, SCANCONFIG;
 
     //2a Configuração
@@ -59,8 +59,8 @@ void init_ADC(void) {
             & ADC_SCAN_OFF
             & ADC_CONVERT_CH0 // Apenas usa Canal 0
             & ADC_SAMPLES_PER_INT_1
-            & ADC_ALT_INPUT_OFF
-            & ADC_ALT_BUF_OFF;
+            & ADC_ALT_INPUT_ON
+            & ADC_ALT_BUF_ON;
     ADCvar3 =
             ADC_SAMPLE_TIME_12 // Tempo de amostragem TAD
             & ADC_CONV_CLK_SYSTEM //Clock interno
@@ -93,16 +93,16 @@ void Read_ADC(void){
 
  //LEITURA DE ADC
 
-    //leitura dos dois primeiros buffers
+    /*leitura dos dois primeiros buffers
 
-       adcpot = ReadADC10(0);/
+       adcpot = ReadADC10(0);
        adcsensor = ReadADC10(1);
 
         printf("%d \n", adcpot);
         printf("%d \n",adcsensor);
-        
+        */
 
-    /*//leitura de todos os buffers
+    //leitura de todos os buffers
     
     i=0;
         while(i<16)
@@ -111,6 +111,6 @@ void Read_ADC(void){
             printf("%d \n", adc);
             i++;
         }
-*/
+
 
 }
