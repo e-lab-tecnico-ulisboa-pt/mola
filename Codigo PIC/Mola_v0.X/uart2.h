@@ -7,7 +7,8 @@
 extern unsigned int UMODEvalue, U2STAvalue, str_pos; //auxiliary UART config variables
 extern char RXbuffer[80];
 
-extern unsigned int srv, pos, fr;
+extern unsigned int  pos, fr, posw;
+extern unsigned int srv;
 
 extern void init_UART2();
 extern int poliglota();

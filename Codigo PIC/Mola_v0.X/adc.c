@@ -5,6 +5,7 @@
 
 #include "adc.h"
 #include "io.h"
+#include "uart2.h"
 
 void init_ADC(void) {
 
@@ -42,7 +43,7 @@ void init_ADC(void) {
     ADCON1bits.ADON = 1; //A/D converter module is operating
     IFS0bits.ADIF = 0; //clear adc interrupt flag
     IEC0bits.ADIE = 1; //enable adc end of sampling 
-*/
+
     unsigned int ADCvar1, ADCvar2, ADCvar3, PINCONFIG, SCANCONFIG;
 
     //2a Configuração
@@ -73,10 +74,38 @@ void init_ADC(void) {
     SetChanADC10(ADC_CH0_POS_SAMPLEA_AN0 & ADC_CH0_NEG_SAMPLEA_NVREF
             & ADC_CH0_POS_SAMPLEB_AN1 & ADC_CH0_NEG_SAMPLEB_NVREF );
     OpenADC10(ADCvar1, ADCvar2, ADCvar3, PINCONFIG, SCANCONFIG);
-
+*/
     //ConfigIntADC10(ADC_INT_PRI_3 & ADC_INT_DISABLE);
 
+ ADPCFG = 0b1111111111111100;
 
+    ADCON1bits.FORM = 0b00; //Data Output Format bits
+    ADCON1bits.SSRC = 0b111; //Conversion Trigger Source Select bits
+    ADCON1bits.SIMSAM = 1; //Simultaneous Sample Select bit
+    ADCON1bits.ASAM = 0; //A/D Sample Auto-Start bit
+    ADCON1bits.SAMP = 0; //A/D Sample Enable bit
+
+    ADCON2bits.VCFG = 0b000; //Voltage Reference Configuration bits
+    ADCON2bits.CSCNA = 0; //Scan Input Selections for CH0+ S/H Input for MUX A
+    ADCON2bits.CHPS = 0b01; //Selects Channels Utilized bits
+    ADCON2bits.SMPI = 0; //Sample/Convert Sequences Per Interrupt Selection
+    ADCON2bits.BUFM = 0; //buffer is a 16-word
+    ADCON2bits.ALTS = 0; //Always use MUX A Input multiplexer settings
+
+    ADCON3bits.SAMC = 0b0011; //Auto-Sample Time bits
+    ADCON3bits.ADRC = 0; //A/D Conversion Clock Source bit
+    ADCON3bits.ADCS = 0b10000; //conversion clock (TCY/2*(ADCS+1))
+
+    ADCHSbits.CH123NA = 0b00; //CH1, CH2, CH3 negative input is VREF-
+    ADCHSbits.CH123SA = 0; //CH1 positive input is AN3, CH2 positive input is AN4, CH3 positive input is AN5
+    ADCHSbits.CH0NA = 0; //Channel 0 negative input is VREF-
+    ADCHSbits.CH0SA = 1; //Channel 0 positive input is AN0
+
+    ADCSSL = 0b0000000000000011; //Select AN2, AN3 for input scan
+
+    ADCON1bits.ADON = 1; //enable ad converter
+    IFS0bits.ADIF = 0; //clear adc interrupt flag
+    IEC0bits.ADIE = 1; //enable adc end of sampling
 
 }
 
@@ -87,30 +116,31 @@ void __attribute__((interrupt, no_auto_psv)) _ADCInterrupt(void) {
     
 }
 
-void Read_ADC(void){
+void Read_ADC(void) {
 
     int adcpot, adcsensor, adc, i;
 
- //LEITURA DE ADC
+    //LEITURA DE ADC
 
-    /*leitura dos dois primeiros buffers
+    //leitura dos dois primeiros buffers
+    ADCON1bits.SAMP = 1;
+    while (ADCON1bits.DONE == 0);
+    pos = ADCBUF1;
+    fr = ADCBUF0;
 
-       adcpot = ReadADC10(0);
-       adcsensor = ReadADC10(1);
+    //printf("%i \n", adcpot);
+    //printf("%i \n", adcsensor);
 
-        printf("%d \n", adcpot);
-        printf("%d \n",adcsensor);
-        */
-
-    //leitura de todos os buffers
+    /*
+        //leitura de todos os buffers
     
-    i=0;
-        while(i<16)
-        {
-            adc = ReadADC10(i);
-            printf("%d \n", adc);
-            i++;
-        }
+        i=0;
+            while(i<16)
+            {
+                adc = ReadADC10(i);
+                printf("%d \n", adc);
+                i++;
+            }
 
-
+     */
 }
