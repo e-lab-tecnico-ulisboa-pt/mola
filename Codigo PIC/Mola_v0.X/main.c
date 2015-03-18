@@ -20,9 +20,8 @@
 
 
 
-char inst,n[10];
-int a,b, ninst=0;
-
+char inst, n[10];
+int a, b, ninst = 0;
 
 int main() {
 
@@ -40,30 +39,29 @@ int main() {
     //  pull_UART2();
 
 
-    srv = 90;
+    posw = 50;
     OC2RS = 332 + 358 * srv / 90;
     printf("teste\n");
 
     while (1) {
 
         pull_UART2();
-        Read_ADC();
-        /*
-        delay_ms(100);
-        printf("A: srv= %i, pos= %i, posw= %i\n", srv, pos, posw);
 
-       srv += (pos-posw)/10;
-       if (srv > 120)
-           srv = 120;
-       if (srv <60)
-           srv = 60;
-       printf("B: srv= %i, pos= %i, posw= %i\n", srv, pos, posw);
 
-              
+        while ((pos < posw - 2) || (pos > posw + 2)) {
+            Read_ADC();
+            delay_ms(10);
+            //printf("A: srv= %i, pos= %i, posw= %i\n", srv, pos, posw);
 
-         */
+            srv += (((int) pos)-((int) posw)) / 20;
+            srv += (((int) pos)-((int) posw)) > 0? 1: -1;
+            if (srv > 180)
+                srv = 180;
+            if (srv < 0)
+                srv = 0;
+            //printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
+            OC2RS = 332 + 358 * srv/90;
+        }
         push_UART2();
-        OC2RS = 332 + 358 * srv / 90;
-
     }
 }

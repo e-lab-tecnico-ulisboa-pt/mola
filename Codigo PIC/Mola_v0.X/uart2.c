@@ -17,7 +17,7 @@
 unsigned int UMODEvalue, U2STAvalue, str_pos = 0; //auxiliary UART config variables
 char RXbuffer[80];
 
-unsigned int pos, srv_lixo, fr_lixo, fr, posw=512;
+unsigned int pos, srv_lixo, fr_lixo, fr, posw;
 unsigned int srv;
 
 void init_UART2() {
@@ -43,8 +43,8 @@ int poliglota() //compares input string with text
     char in_arg[60], n[20];
     strcpy(n,RXbuffer);
 
-    t = sscanf(n, "%u", &srv); //Debug do servo
-    //t = sscanf(n, "posw %u\n\r", &posw); //Debug do servo
+    //t = sscanf(n, "%u", &srv); //Debug do servo
+    t = sscanf(n, "posw %u\n\r", &posw); //Debug do servo
     w = sscanf(n, "POS_%u SRV_%u FR_%u %s\n\r", &posw, &srv_lixo, &fr_lixo, in_arg); //reads buffer to a string and an int
     if (t==1)
         printf("debugging: srv=%u\n\r", srv);
