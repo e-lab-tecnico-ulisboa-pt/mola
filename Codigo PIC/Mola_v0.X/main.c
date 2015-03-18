@@ -18,6 +18,12 @@
 #include "adc.h"
 #include "spi.h"
 
+
+
+char inst,n[10];
+int a,b, ninst=0;
+
+
 int main() {
 
     init_UART2();
@@ -26,17 +32,69 @@ int main() {
     init_TMR2();
     init_OC2();
 
-    init_TMR4(); //Comunicação
+    init_TMR4();
+    //Comunicação
+   
+    init_ADC();
 
-    srv = 180;
+   pull_UART2();
 
+
+    srv = 170;
+
+    printf("teste\n");
+    
     while (1) {
-        pull_UART2();//Actualiza a variavel pos
-        push_UART2();//Envia as variaveis pos, srv, fr
+
+
+        inst=RXbuffer[str_pos -2];
         
-        OC2RS = 332+358*srv/90; //Duty Time
+        
+        OC2RS = 332+358*srv/90;
+
+
+
+
+          
+
+          if(inst=='p'){
+
+              pull_UART2();
+              push_UART2();
+             /*
+              a=0;
+             
+                  strcpy(n, RXbuffer);
+                  strcpy(srv,n );
+                  a = sscanf(n, " %u \r", &srv);
+                  //printf("%u", srv);
+                  if(a==1) break;//push_UART2();}
+                 // printf("t1\n");
+
+              
+               //a=RXbuffer[str_pos -2];
+                  
+              //poliglota();
+             // push_UART2();//Envia as variaveis pos, srv, fr
+              */
+            OC2RS = 332+358*srv/90;
+               //inst=RXbuffer[str_pos -2];
+          }
+         
+
+           
+            if(inst=='a') Read_ADC();
+           
+
+
+
+        if (inst=='t') break;
+
+        //OC2RS = 332+358*srv/90; //Duty Time
+    
+
+
+
+
     }
-
-
 }
-

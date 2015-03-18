@@ -10,10 +10,10 @@
 
 void init_OC2(void) {
 
-    OC2CONbits.OCSIDL = 0;
-    OC2CONbits.OCFLT = 0;
+    OC2CONbits.OCSIDL = 0;//continue to opetrate in idle mode
+    OC2CONbits.OCFLT = 0;// acho que não é preciso
     OC2CONbits.OCTSEL = 0; //Timer2 is the clock source for compare 2
-    OC2CONbits.OCM = 0x6;
+    OC2CONbits.OCM = 0x6;// acho que não é preciso
     OC2RS = 332+358*srv/90; //Duty Time
 
 }

@@ -1,6 +1,6 @@
 #Determinação do coeciente de elasticidade de uma mola
 ##introdução
-Com o aparato experimental desenvolvido pretende-se a determinação do coeciente de elasticidade de uma mola. É aplicada uma força por um servo (HS-311), medida a posição com um potenciómetro linear e a força aplicada por um sensor de pressão (Vernier dual-range force sensor, with Circular DIN Plug – 5 pin). Estes dispositivos são controlados por um dsPIC30F4011.
+Com o aparato experimental desenvolvido pretende-se a determinação do coeficiente de elasticidade de uma mola. É aplicada uma força por um servo (HS-311), medida a posição com um potenciómetro linear e a força aplicada por um sensor de pressão (Vernier dual-range force sensor, with Circular DIN Plug – 5 pin). Estes dispositivos são controlados por um dsPIC30F4011.
 A experiência está ligada a um computador (fedora 20) via série (RS232). No computador corre o software epics.
 
 ##Guide Lines

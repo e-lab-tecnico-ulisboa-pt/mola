@@ -39,26 +39,40 @@ int poliglota() //compares input string with text
 //executes desired function or assigns a value to a variable
 {
     int w, t; //variable declaration
-    char in_arg[60];
+    char in_arg[60], n[20];
+    strcpy(n,RXbuffer);
 
-    t = sscanf(RXbuffer, "srv %u\n\r", &srv); //Debug do servo
-    w = sscanf(RXbuffer, "POS_%u SRV_%u FR_%u %s\n\r", &pos, &srv_lixo, &fr_lixo, in_arg); //reads buffer to a string and an int
+    t = sscanf(n, " %u\n\r", &srv); //Debug do servo
+    //w = sscanf(n, "POS_%u SRV_%u FR_%u %s\n\r", &pos, &srv_lixo, &fr_lixo, in_arg); //reads buffer to a string and an int
     if (t==1)
         printf("debugging: srv=%u\n\r", srv);
-    else if (w < 3) printf("ERROR: that was not recognized!...\n"); //string not recognized
+   // else if (w < 3) printf("ERROR: that was not recognized!...\n"); //string not recognized
+    return srv;
 
-    return w;
+    //LEITURA FEITA POR MIM
+    //sscanf(RXbuffer, "pos %u\n\r", &pos); //leitura da posição pretendida
+
+    /*if(servo=max){*/
+
+
+
 }
 
 void pull_UART2() {
     int i = 0;
+    int ninst=0, inst;
     if (RXbuffer[str_pos ? str_pos - 1 : 0] == '\r') //If a complete line was sent, runs poliglota,
         //prepares to new line
     {
         //printf("ola!!\n");
         //printf("\nEnter pressed\n");
-        printf("%s\n", RXbuffer); //prints input received
-        poliglota();
+
+          printf("%s\n", RXbuffer); //prints input received
+
+        ninst=2;
+
+
+        //poliglota();
         str_pos = 0; //returns the pointer to position zero in the circular buffer
         for (i = 0; i < 80; i++) {
             RXbuffer[i] = '\0';
