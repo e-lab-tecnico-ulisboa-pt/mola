@@ -59,8 +59,9 @@ int main() {
                 srv = 180;
             if (srv < 0)
                 srv = 0;
-            //printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
+            printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
             OC2RS = 332 + 358 * srv/90;
+            push_UART2();
         }
         push_UART2();
     }

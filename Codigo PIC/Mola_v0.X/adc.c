@@ -82,19 +82,19 @@ void init_ADC(void) {
     ADCON1bits.FORM = 0b00; //Data Output Format bits
     ADCON1bits.SSRC = 0b111; //Conversion Trigger Source Select bits
     ADCON1bits.SIMSAM = 1; //Simultaneous Sample Select bit
-    ADCON1bits.ASAM = 0; //A/D Sample Auto-Start bit
+    ADCON1bits.ASAM = 1; //A/D Sample Auto-Start bit
     ADCON1bits.SAMP = 0; //A/D Sample Enable bit
 
     ADCON2bits.VCFG = 0b000; //Voltage Reference Configuration bits
     ADCON2bits.CSCNA = 0; //Scan Input Selections for CH0+ S/H Input for MUX A
     ADCON2bits.CHPS = 0b01; //Selects Channels Utilized bits
-    ADCON2bits.SMPI = 0; //Sample/Convert Sequences Per Interrupt Selection
+    ADCON2bits.SMPI = 0b1111; //Sample/Convert Sequences Per Interrupt Selection
     ADCON2bits.BUFM = 0; //buffer is a 16-word
     ADCON2bits.ALTS = 0; //Always use MUX A Input multiplexer settings
 
-    ADCON3bits.SAMC = 0b0011; //Auto-Sample Time bits
+    ADCON3bits.SAMC = 0b1010; //Auto-Sample Time bits
     ADCON3bits.ADRC = 0; //A/D Conversion Clock Source bit
-    ADCON3bits.ADCS = 0b10000; //conversion clock (TCY/2*(ADCS+1))
+    ADCON3bits.ADCS = 0b111111; //conversion clock (TCY/2*(ADCS+1))
 
     ADCHSbits.CH123NA = 0b00; //CH1, CH2, CH3 negative input is VREF-
     ADCHSbits.CH123SA = 0; //CH1 positive input is AN3, CH2 positive input is AN4, CH3 positive input is AN5
@@ -103,7 +103,7 @@ void init_ADC(void) {
 
     ADCSSL = 0b0000000000000011; //Select AN2, AN3 for input scan
 
-    ADCON1bits.ADON = 1; //enable ad converter
+    ADCON1bits.ADON = 0; //enable ad converter
     IFS0bits.ADIF = 0; //clear adc interrupt flag
     IEC0bits.ADIE = 1; //enable adc end of sampling
 
@@ -113,7 +113,8 @@ void init_ADC(void) {
 
 void __attribute__((interrupt, no_auto_psv)) _ADCInterrupt(void) {
     IFS0bits.ADIF = 0;
-    
+     //LED1 = !LED1;
+      ADCON1bits.ADON = 0;
 }
 
 void Read_ADC(void) {
@@ -123,15 +124,19 @@ void Read_ADC(void) {
     //LEITURA DE ADC
 
     //leitura dos dois primeiros buffers
-    ADCON1bits.SAMP = 1;
-    while (ADCON1bits.DONE == 0);
-    pos = ADCBUF1;
-    fr = ADCBUF0;
+    //ADCON1bits.SAMP = 1;
+   // while (ADCON1bits.DONE == 0);
+
+
+
+
+    pos = ADCBUFD;
+    fr = ADCBUFE;
 
     //printf("%i \n", adcpot);
     //printf("%i \n", adcsensor);
+/*
 
-    /*
         //leitura de todos os buffers
     
         i=0;
@@ -141,6 +146,6 @@ void Read_ADC(void) {
                 printf("%d \n", adc);
                 i++;
             }
+*/
 
-     */
 }

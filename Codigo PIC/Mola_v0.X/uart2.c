@@ -43,13 +43,11 @@ int poliglota() //compares input string with text
     char in_arg[60], n[20];
     strcpy(n,RXbuffer);
 
-    //t = sscanf(n, "%u", &srv); //Debug do servo
-    t = sscanf(n, "posw %u\n\r", &posw); //Debug do servo
-    w = sscanf(n, "POS_%u SRV_%u FR_%u %s\n\r", &posw, &srv_lixo, &fr_lixo, in_arg); //reads buffer to a string and an int
-    if (t==1)
-        printf("debugging: srv=%u\n\r", srv);
-    else if (w < 3) printf("ERROR: that was not recognized!...\n"); //string not recognized
-    return srv;
+
+    w = sscanf(n, "PW_%u\n\r", &posw, in_arg); //reads buffer to a string and an int
+    if (w <1) printf("ERROR: that was not recognized!...\n"); //string not recognized
+
+    return 0;
 
     //LEITURA FEITA POR MIM
     //sscanf(RXbuffer, "pos %u\n\r", &pos); //leitura da posição pretendida
@@ -84,8 +82,8 @@ void pull_UART2() {
 }
 
 void push_UART2() {
-    if (uart2_push || 1) {
-        printf("POS_%u SRV_%u FR_%u\n\r", pos, srv, fr);
+    if (uart2_push) {
+        printf("PM_%u PW_%u SR_%u FR_%u\n\r", pos, posw, srv, fr);
         uart2_push = 0;
     }
 }
