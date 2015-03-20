@@ -118,34 +118,7 @@ void __attribute__((interrupt, no_auto_psv)) _ADCInterrupt(void) {
 }
 
 void Read_ADC(void) {
-
-    int adcpot, adcsensor, adc, i;
-
-    //LEITURA DE ADC
-
-    //leitura dos dois primeiros buffers
-    //ADCON1bits.SAMP = 1;
-   // while (ADCON1bits.DONE == 0);
-
-
-
-
     pos = ADCBUFD;
     fr = ADCBUFE;
-
-    //printf("%i \n", adcpot);
-    //printf("%i \n", adcsensor);
-/*
-
-        //leitura de todos os buffers
-    
-        i=0;
-            while(i<16)
-            {
-                adc = ReadADC10(i);
-                printf("%d \n", adc);
-                i++;
-            }
-*/
 
 }

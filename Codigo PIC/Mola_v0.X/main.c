@@ -17,7 +17,8 @@
 #include "todo.h"
 #include "adc.h"
 #include "spi.h"
-
+#include "elab.h"
+#include "multimode.h"
 
 
 char inst, n[10];
@@ -25,7 +26,9 @@ int a, b, ninst = 0;
 
 int main() {
 
-    init_UART2();
+    escolha = ELAB;
+
+    config_uart2();
     init_io();
 
     init_TMR2();
@@ -59,7 +62,7 @@ int main() {
                 srv = 180;
             if (srv < 0)
                 srv = 0;
-            printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
+           // printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
             OC2RS = 332 + 358 * srv/90;
             push_UART2();
         }

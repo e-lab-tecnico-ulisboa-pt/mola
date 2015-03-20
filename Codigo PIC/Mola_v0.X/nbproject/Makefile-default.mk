@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c delays.c ic.c io.c main.c oc.c timer2.c timer3.c timer4.c todo.c uart2.c spi.c
+SOURCEFILES_QUOTED_IF_SPACED=adc.c delays.c ic.c io.c main.c oc.c timer2.c timer3.c timer4.c todo.c uart2.c spi.c maq_de_estados.c protocolos.c rec_generic_driver.c uart_stdio.c multimode.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/ic.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/oc.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/timer4.o ${OBJECTDIR}/todo.o ${OBJECTDIR}/uart2.o ${OBJECTDIR}/spi.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/delays.o.d ${OBJECTDIR}/ic.o.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/oc.o.d ${OBJECTDIR}/timer2.o.d ${OBJECTDIR}/timer3.o.d ${OBJECTDIR}/timer4.o.d ${OBJECTDIR}/todo.o.d ${OBJECTDIR}/uart2.o.d ${OBJECTDIR}/spi.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/ic.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/oc.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/timer4.o ${OBJECTDIR}/todo.o ${OBJECTDIR}/uart2.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/maq_de_estados.o ${OBJECTDIR}/protocolos.o ${OBJECTDIR}/rec_generic_driver.o ${OBJECTDIR}/uart_stdio.o ${OBJECTDIR}/multimode.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/delays.o.d ${OBJECTDIR}/ic.o.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/oc.o.d ${OBJECTDIR}/timer2.o.d ${OBJECTDIR}/timer3.o.d ${OBJECTDIR}/timer4.o.d ${OBJECTDIR}/todo.o.d ${OBJECTDIR}/uart2.o.d ${OBJECTDIR}/spi.o.d ${OBJECTDIR}/maq_de_estados.o.d ${OBJECTDIR}/protocolos.o.d ${OBJECTDIR}/rec_generic_driver.o.d ${OBJECTDIR}/uart_stdio.o.d ${OBJECTDIR}/multimode.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/ic.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/oc.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/timer4.o ${OBJECTDIR}/todo.o ${OBJECTDIR}/uart2.o ${OBJECTDIR}/spi.o
+OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/ic.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/oc.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/timer4.o ${OBJECTDIR}/todo.o ${OBJECTDIR}/uart2.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/maq_de_estados.o ${OBJECTDIR}/protocolos.o ${OBJECTDIR}/rec_generic_driver.o ${OBJECTDIR}/uart_stdio.o ${OBJECTDIR}/multimode.o
 
 # Source Files
-SOURCEFILES=adc.c delays.c ic.c io.c main.c oc.c timer2.c timer3.c timer4.c todo.c uart2.c spi.c
+SOURCEFILES=adc.c delays.c ic.c io.c main.c oc.c timer2.c timer3.c timer4.c todo.c uart2.c spi.c maq_de_estados.c protocolos.c rec_generic_driver.c uart_stdio.c multimode.c
 
 
 CFLAGS=
@@ -166,6 +166,41 @@ ${OBJECTDIR}/spi.o: spi.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  spi.c  -o ${OBJECTDIR}/spi.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/spi.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/maq_de_estados.o: maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/maq_de_estados.o.d 
+	@${RM} ${OBJECTDIR}/maq_de_estados.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  maq_de_estados.c  -o ${OBJECTDIR}/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/maq_de_estados.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/protocolos.o: protocolos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/protocolos.o.d 
+	@${RM} ${OBJECTDIR}/protocolos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  protocolos.c  -o ${OBJECTDIR}/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/protocolos.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/rec_generic_driver.o: rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/rec_generic_driver.o.d 
+	@${RM} ${OBJECTDIR}/rec_generic_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rec_generic_driver.c  -o ${OBJECTDIR}/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rec_generic_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/uart_stdio.o: uart_stdio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/uart_stdio.o.d 
+	@${RM} ${OBJECTDIR}/uart_stdio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_stdio.c  -o ${OBJECTDIR}/uart_stdio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_stdio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/uart_stdio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/multimode.o: multimode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/multimode.o.d 
+	@${RM} ${OBJECTDIR}/multimode.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  multimode.c  -o ${OBJECTDIR}/multimode.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/multimode.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/multimode.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -250,6 +285,41 @@ ${OBJECTDIR}/spi.o: spi.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/spi.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  spi.c  -o ${OBJECTDIR}/spi.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/spi.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/maq_de_estados.o: maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/maq_de_estados.o.d 
+	@${RM} ${OBJECTDIR}/maq_de_estados.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  maq_de_estados.c  -o ${OBJECTDIR}/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/maq_de_estados.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/protocolos.o: protocolos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/protocolos.o.d 
+	@${RM} ${OBJECTDIR}/protocolos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  protocolos.c  -o ${OBJECTDIR}/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/protocolos.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/rec_generic_driver.o: rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/rec_generic_driver.o.d 
+	@${RM} ${OBJECTDIR}/rec_generic_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rec_generic_driver.c  -o ${OBJECTDIR}/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rec_generic_driver.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/uart_stdio.o: uart_stdio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/uart_stdio.o.d 
+	@${RM} ${OBJECTDIR}/uart_stdio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_stdio.c  -o ${OBJECTDIR}/uart_stdio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_stdio.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/uart_stdio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/multimode.o: multimode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/multimode.o.d 
+	@${RM} ${OBJECTDIR}/multimode.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  multimode.c  -o ${OBJECTDIR}/multimode.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/multimode.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/multimode.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

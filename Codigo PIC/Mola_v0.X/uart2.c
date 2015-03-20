@@ -39,13 +39,13 @@ void init_UART2() {
 int poliglota() //compares input string with text
 //executes desired function or assigns a value to a variable
 {
-    int w, t; //variable declaration
+    int w; //variable declaration
     char in_arg[60], n[20];
-    strcpy(n,RXbuffer);
+    strcpy(n, RXbuffer);
 
 
-    w = sscanf(n, "PW_%u\n\r", &posw, in_arg); //reads buffer to a string and an int
-    if (w <1) printf("ERROR: that was not recognized!...\n"); //string not recognized
+    w = sscanf(n, "PW_%u\n\r%s", &posw, in_arg); //reads buffer to a string and an int
+    if (w < 1) printf("ERROR: that was not recognized!...\n"); //string not recognized
 
     return 0;
 
@@ -60,18 +60,14 @@ int poliglota() //compares input string with text
 
 void pull_UART2() {
     int i = 0;
-    int ninst=0, inst;
+
     if (RXbuffer[str_pos ? str_pos - 1 : 0] == '\r') //If a complete line was sent, runs poliglota,
         //prepares to new line
     {
         //printf("ola!!\n");
         //printf("\nEnter pressed\n");
 
-          printf("%s\n", RXbuffer); //prints input received
-
-        ninst=2;
-
-
+        printf("%s\n", RXbuffer); //prints input received
         poliglota();
         str_pos = 0; //returns the pointer to position zero in the circular buffer
         for (i = 0; i < 80; i++) {
@@ -95,7 +91,7 @@ void push_UART2() {
 
 /* This is UART2 receive ISR */
 // UART Interruption handler
-
+/*
 void __attribute__((__interrupt__, auto_psv)) _U2RXInterrupt(void) {
     IFS1bits.U2RXIF = 0; //resets and reenables the Rx2 interrupt flag
 
@@ -109,3 +105,4 @@ void __attribute__((__interrupt__, auto_psv)) _U2RXInterrupt(void) {
         } //if the last position is reached then return to initial position
     }
 }
+ */
