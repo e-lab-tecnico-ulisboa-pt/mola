@@ -20,9 +20,8 @@
 
 
 
-char inst,n[10];
-int a,b, ninst=0;
-
+char inst, n[10];
+int a, b, ninst = 0;
 
 int main() {
 
@@ -34,67 +33,36 @@ int main() {
 
     init_TMR4();
     //Comunicação
-   
+
     init_ADC();
 
-   pull_UART2();
+    //  pull_UART2();
 
 
-    srv = 170;
-
+    posw = 50;
+    OC2RS = 332 + 358 * srv / 90;
     printf("teste\n");
-    
+
     while (1) {
 
-
-        inst=RXbuffer[str_pos -2];
-        
-        
-        OC2RS = 332+358*srv/90;
+        pull_UART2();
 
 
+        while ((pos < posw - 2) || (pos > posw + 2)) {
+            Read_ADC();
+            delay_ms(10);
+            //printf("A: srv= %i, pos= %i, posw= %i\n", srv, pos, posw);
 
-
-          
-
-          if(inst=='p'){
-
-              pull_UART2();
-              push_UART2();
-             /*
-              a=0;
-             
-                  strcpy(n, RXbuffer);
-                  strcpy(srv,n );
-                  a = sscanf(n, " %u \r", &srv);
-                  //printf("%u", srv);
-                  if(a==1) break;//push_UART2();}
-                 // printf("t1\n");
-
-              
-               //a=RXbuffer[str_pos -2];
-                  
-              //poliglota();
-             // push_UART2();//Envia as variaveis pos, srv, fr
-              */
-            OC2RS = 332+358*srv/90;
-               //inst=RXbuffer[str_pos -2];
-          }
-         
-
-           
-            if(inst=='a') Read_ADC();
-           
-
-
-
-        if (inst=='t') break;
-
-        //OC2RS = 332+358*srv/90; //Duty Time
-    
-
-
-
-
+            srv += (((int) pos)-((int) posw)) / 20;
+            srv += (((int) pos)-((int) posw)) > 0? 1: -1;
+            if (srv > 180)
+                srv = 180;
+            if (srv < 0)
+                srv = 0;
+            printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
+            OC2RS = 332 + 358 * srv/90;
+            push_UART2();
+        }
+        push_UART2();
     }
 }

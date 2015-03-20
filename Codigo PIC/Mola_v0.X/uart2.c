@@ -17,7 +17,8 @@
 unsigned int UMODEvalue, U2STAvalue, str_pos = 0; //auxiliary UART config variables
 char RXbuffer[80];
 
-unsigned int pos, srv_lixo, fr_lixo, srv, fr;
+unsigned int pos, srv_lixo, fr_lixo, fr, posw;
+unsigned int srv;
 
 void init_UART2() {
     /* Serial port config */
@@ -42,12 +43,11 @@ int poliglota() //compares input string with text
     char in_arg[60], n[20];
     strcpy(n,RXbuffer);
 
-    t = sscanf(n, " %u\n\r", &srv); //Debug do servo
-    //w = sscanf(n, "POS_%u SRV_%u FR_%u %s\n\r", &pos, &srv_lixo, &fr_lixo, in_arg); //reads buffer to a string and an int
-    if (t==1)
-        printf("debugging: srv=%u\n\r", srv);
-   // else if (w < 3) printf("ERROR: that was not recognized!...\n"); //string not recognized
-    return srv;
+
+    w = sscanf(n, "PW_%u\n\r", &posw, in_arg); //reads buffer to a string and an int
+    if (w <1) printf("ERROR: that was not recognized!...\n"); //string not recognized
+
+    return 0;
 
     //LEITURA FEITA POR MIM
     //sscanf(RXbuffer, "pos %u\n\r", &pos); //leitura da posição pretendida
@@ -72,7 +72,7 @@ void pull_UART2() {
         ninst=2;
 
 
-        //poliglota();
+        poliglota();
         str_pos = 0; //returns the pointer to position zero in the circular buffer
         for (i = 0; i < 80; i++) {
             RXbuffer[i] = '\0';
@@ -83,7 +83,7 @@ void pull_UART2() {
 
 void push_UART2() {
     if (uart2_push) {
-        printf("POS_%u SRV_%u FR_%u\n\r", pos, srv, fr);
+        printf("PM_%u PW_%u SR_%u FR_%u\n\r", pos, posw, srv, fr);
         uart2_push = 0;
     }
 }

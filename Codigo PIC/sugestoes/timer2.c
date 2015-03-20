@@ -26,9 +26,6 @@ void init_TMR2(void) {
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
     IFS0bits.T2IF = 0; //Clears interrupt flag
-      ADCON1bits.ADON = 1;
-     //LED2 = !LED2;
-   
-
-
+    //ADCON1bits.SAMP = 1;
+    LED1 = !LED1;
 }
