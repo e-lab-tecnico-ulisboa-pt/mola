@@ -4,8 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../Library/elab.h</itemPath>
-      <itemPath>../Library/user_defines.h</itemPath>
+      <itemPath>Library/elab.h</itemPath>
+      <itemPath>Library/p30f4013.h</itemPath>
+      <itemPath>Library/user_defines.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -14,16 +15,21 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../Library/delays.c</itemPath>
-      <itemPath>../Library/step_motor2.c</itemPath>
-      <itemPath>../Library/rec_generic_driver.c</itemPath>
-      <itemPath>../Library/timer.c</itemPath>
-      <itemPath>../Library/uart.c</itemPath>
-      <itemPath>../Library/maq_de_estados.c</itemPath>
-      <itemPath>../Library/protocolos.c</itemPath>
-      <itemPath>../Library/tm1640.c</itemPath>
-      <itemPath>../Library/adc.c</itemPath>
-      <itemPath>../hidrostat.c</itemPath>
+      <itemPath>Library/SPI_main.c</itemPath>
+      <itemPath>Library/adc.c</itemPath>
+      <itemPath>Library/delays.c</itemPath>
+      <itemPath>Library/maq_de_estados.c</itemPath>
+      <itemPath>Library/protocolos.c</itemPath>
+      <itemPath>Library/rec_generic_driver.c</itemPath>
+      <itemPath>Library/servo.c</itemPath>
+      <itemPath>Library/spi.c</itemPath>
+      <itemPath>Library/step_motor.c</itemPath>
+      <itemPath>Library/step_motor2.c</itemPath>
+      <itemPath>Library/timer.c</itemPath>
+      <itemPath>Library/tm1640.c</itemPath>
+      <itemPath>Library/uart.c</itemPath>
+      <itemPath>Library/uart_stdio.c</itemPath>
+      <itemPath>hidrostat.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -44,7 +50,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.23</languageToolchainVersion>
+        <languageToolchainVersion>1.24</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <compileType>

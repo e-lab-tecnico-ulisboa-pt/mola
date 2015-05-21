@@ -2,7 +2,7 @@
 
 void maq_de_estados(void) {
     //Variables for external button
-    double cur_pos, step, p1, p2, p3, p4;
+
 
 
     //STOPPING transition

@@ -5,7 +5,7 @@ char state[20];
 int stop = 0;
 int time_out = 0;
 
-int protocolo = 0, param_1, param_2, param_3;
+int protocolo = 0, param_1, param_2, param_3, param_4;
 
 //Function to put in the while true in main	
 void rec_generic_driver(void ){		
@@ -40,14 +40,14 @@ void rec_generic_driver(void ){
 	/*cfg - configure command and save the N command (as a string) in 
 	the parameters[N][]*/
 		if(strncmp(Serial.rbuf,"cfg",3) == 0){
-			sscanf(Serial.rbuf,"%*s\t%d\t%d\t%d\t%d",&protocolo,&param_1,&param_2,&param_3);
-			printf("CFG\t%d\t%d\t%d\t%d\r",protocolo,param_1,param_2,param_3);
+			sscanf(Serial.rbuf,"%*s\t%d\t%d\t%d\t%d\t%d",&protocolo,&param_1,&param_2,&param_3,&param_4);
+			printf("CFG\t%d\t%d\t%d\t%d\t%d\r",protocolo,param_1,param_2,param_3,param_4);
 			sprintf(state,"CONFIGURING");
 		}
 
 	//cur - current configuration command
 		if(strncmp(Serial.rbuf,"cur",3) == 0){
-			printf("CUR\t%d\t%d\t%d\t%d\r",protocolo,param_1,param_2,param_3);
+			printf("CUR\t%d\t%d\t%d\t%d\t%d\r",protocolo,param_1,param_2,param_3,param_4);
 		}
 
 	//str - strat command

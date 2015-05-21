@@ -5,7 +5,7 @@
 
 #include "adc.h"
 #include "io.h"
-#include "uart2.h"
+#include "uart.h"
 
 void init_ADC(void) {
 
@@ -116,9 +116,10 @@ void __attribute__((interrupt, no_auto_psv)) _ADCInterrupt(void) {
      //LED1 = !LED1;
       ADCON1bits.ADON = 0;
 }
-
+/*
 void Read_ADC(void) {
     pos = ADCBUFD;
     fr = ADCBUFE;
 
 }
+ */

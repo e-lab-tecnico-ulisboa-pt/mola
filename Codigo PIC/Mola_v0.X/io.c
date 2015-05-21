@@ -5,10 +5,10 @@
 
 //Configuration bits
 _FOSC(CSW_FSCM_OFF & XT_PLL16); //oscilator at 16x PLL
-_FWDT(WDT_OFF); //watchdog timer is off
+_FWDT(WDT_ON & WDTPSA_512 & WDTPSB_16); //watchdog timer (interval of ~ 16s)
+//_FWDT(WDT_OFF);
 
 void init_io(void) {
-
     BOTAO_TRIS  = INPUT;
     AN0_TRIS    = INPUT;
     AN1_TRIS    = INPUT;
@@ -16,4 +16,5 @@ void init_io(void) {
     LED1_TRIS = OUTPUT;
     LED2_TRIS = OUTPUT;
     PWM2_TRIS = OUTPUT;
+    LIGHT_TRIS = OUTPUT;
 }

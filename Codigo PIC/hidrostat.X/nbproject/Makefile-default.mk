@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../Library/delays.c ../Library/step_motor2.c ../Library/rec_generic_driver.c ../Library/timer.c ../Library/uart.c ../Library/maq_de_estados.c ../Library/protocolos.c ../Library/tm1640.c ../Library/adc.c ../hidrostat.c
+SOURCEFILES_QUOTED_IF_SPACED=Library/SPI_main.c Library/adc.c Library/delays.c Library/maq_de_estados.c Library/protocolos.c Library/rec_generic_driver.c Library/servo.c Library/spi.c Library/step_motor.c Library/step_motor2.c Library/timer.c Library/tm1640.c Library/uart.c Library/uart_stdio.c hidrostat.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/150355788/delays.o ${OBJECTDIR}/_ext/150355788/step_motor2.o ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o ${OBJECTDIR}/_ext/150355788/timer.o ${OBJECTDIR}/_ext/150355788/uart.o ${OBJECTDIR}/_ext/150355788/maq_de_estados.o ${OBJECTDIR}/_ext/150355788/protocolos.o ${OBJECTDIR}/_ext/150355788/tm1640.o ${OBJECTDIR}/_ext/150355788/adc.o ${OBJECTDIR}/_ext/1472/hidrostat.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/150355788/delays.o.d ${OBJECTDIR}/_ext/150355788/step_motor2.o.d ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d ${OBJECTDIR}/_ext/150355788/timer.o.d ${OBJECTDIR}/_ext/150355788/uart.o.d ${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d ${OBJECTDIR}/_ext/150355788/protocolos.o.d ${OBJECTDIR}/_ext/150355788/tm1640.o.d ${OBJECTDIR}/_ext/150355788/adc.o.d ${OBJECTDIR}/_ext/1472/hidrostat.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Library/SPI_main.o ${OBJECTDIR}/Library/adc.o ${OBJECTDIR}/Library/delays.o ${OBJECTDIR}/Library/maq_de_estados.o ${OBJECTDIR}/Library/protocolos.o ${OBJECTDIR}/Library/rec_generic_driver.o ${OBJECTDIR}/Library/servo.o ${OBJECTDIR}/Library/spi.o ${OBJECTDIR}/Library/step_motor.o ${OBJECTDIR}/Library/step_motor2.o ${OBJECTDIR}/Library/timer.o ${OBJECTDIR}/Library/tm1640.o ${OBJECTDIR}/Library/uart.o ${OBJECTDIR}/Library/uart_stdio.o ${OBJECTDIR}/hidrostat.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Library/SPI_main.o.d ${OBJECTDIR}/Library/adc.o.d ${OBJECTDIR}/Library/delays.o.d ${OBJECTDIR}/Library/maq_de_estados.o.d ${OBJECTDIR}/Library/protocolos.o.d ${OBJECTDIR}/Library/rec_generic_driver.o.d ${OBJECTDIR}/Library/servo.o.d ${OBJECTDIR}/Library/spi.o.d ${OBJECTDIR}/Library/step_motor.o.d ${OBJECTDIR}/Library/step_motor2.o.d ${OBJECTDIR}/Library/timer.o.d ${OBJECTDIR}/Library/tm1640.o.d ${OBJECTDIR}/Library/uart.o.d ${OBJECTDIR}/Library/uart_stdio.o.d ${OBJECTDIR}/hidrostat.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/150355788/delays.o ${OBJECTDIR}/_ext/150355788/step_motor2.o ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o ${OBJECTDIR}/_ext/150355788/timer.o ${OBJECTDIR}/_ext/150355788/uart.o ${OBJECTDIR}/_ext/150355788/maq_de_estados.o ${OBJECTDIR}/_ext/150355788/protocolos.o ${OBJECTDIR}/_ext/150355788/tm1640.o ${OBJECTDIR}/_ext/150355788/adc.o ${OBJECTDIR}/_ext/1472/hidrostat.o
+OBJECTFILES=${OBJECTDIR}/Library/SPI_main.o ${OBJECTDIR}/Library/adc.o ${OBJECTDIR}/Library/delays.o ${OBJECTDIR}/Library/maq_de_estados.o ${OBJECTDIR}/Library/protocolos.o ${OBJECTDIR}/Library/rec_generic_driver.o ${OBJECTDIR}/Library/servo.o ${OBJECTDIR}/Library/spi.o ${OBJECTDIR}/Library/step_motor.o ${OBJECTDIR}/Library/step_motor2.o ${OBJECTDIR}/Library/timer.o ${OBJECTDIR}/Library/tm1640.o ${OBJECTDIR}/Library/uart.o ${OBJECTDIR}/Library/uart_stdio.o ${OBJECTDIR}/hidrostat.o
 
 # Source Files
-SOURCEFILES=../Library/delays.c ../Library/step_motor2.c ../Library/rec_generic_driver.c ../Library/timer.c ../Library/uart.c ../Library/maq_de_estados.c ../Library/protocolos.c ../Library/tm1640.c ../Library/adc.c ../hidrostat.c
+SOURCEFILES=Library/SPI_main.c Library/adc.c Library/delays.c Library/maq_de_estados.c Library/protocolos.c Library/rec_generic_driver.c Library/servo.c Library/spi.c Library/step_motor.c Library/step_motor2.c Library/timer.c Library/tm1640.c Library/uart.c Library/uart_stdio.c hidrostat.c
 
 
 CFLAGS=
@@ -82,146 +82,216 @@ MP_LINKER_FILE_OPTION=,--script=p30F4011.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/150355788/delays.o: ../Library/delays.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/delays.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/delays.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/delays.c  -o ${OBJECTDIR}/_ext/150355788/delays.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/delays.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/delays.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/SPI_main.o: Library/SPI_main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/SPI_main.o.d 
+	@${RM} ${OBJECTDIR}/Library/SPI_main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/SPI_main.c  -o ${OBJECTDIR}/Library/SPI_main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/SPI_main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/SPI_main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/step_motor2.o: ../Library/step_motor2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/step_motor2.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/step_motor2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/step_motor2.c  -o ${OBJECTDIR}/_ext/150355788/step_motor2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/step_motor2.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/step_motor2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/adc.o: Library/adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/adc.o.d 
+	@${RM} ${OBJECTDIR}/Library/adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/adc.c  -o ${OBJECTDIR}/Library/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/rec_generic_driver.o: ../Library/rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/rec_generic_driver.c  -o ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/delays.o: Library/delays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/delays.o.d 
+	@${RM} ${OBJECTDIR}/Library/delays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/delays.c  -o ${OBJECTDIR}/Library/delays.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/delays.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/delays.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/timer.o: ../Library/timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/timer.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/timer.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/timer.c  -o ${OBJECTDIR}/_ext/150355788/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/timer.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/timer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/maq_de_estados.o: Library/maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/maq_de_estados.o.d 
+	@${RM} ${OBJECTDIR}/Library/maq_de_estados.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/maq_de_estados.c  -o ${OBJECTDIR}/Library/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/maq_de_estados.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/uart.o: ../Library/uart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/uart.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/uart.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/uart.c  -o ${OBJECTDIR}/_ext/150355788/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/uart.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/protocolos.o: Library/protocolos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/protocolos.o.d 
+	@${RM} ${OBJECTDIR}/Library/protocolos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/protocolos.c  -o ${OBJECTDIR}/Library/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/protocolos.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/maq_de_estados.o: ../Library/maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/maq_de_estados.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/maq_de_estados.c  -o ${OBJECTDIR}/_ext/150355788/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/rec_generic_driver.o: Library/rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/rec_generic_driver.o.d 
+	@${RM} ${OBJECTDIR}/Library/rec_generic_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/rec_generic_driver.c  -o ${OBJECTDIR}/Library/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/rec_generic_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/protocolos.o: ../Library/protocolos.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/protocolos.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/protocolos.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/protocolos.c  -o ${OBJECTDIR}/_ext/150355788/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/protocolos.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/servo.o: Library/servo.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/servo.o.d 
+	@${RM} ${OBJECTDIR}/Library/servo.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/servo.c  -o ${OBJECTDIR}/Library/servo.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/servo.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/servo.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/tm1640.o: ../Library/tm1640.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/tm1640.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/tm1640.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/tm1640.c  -o ${OBJECTDIR}/_ext/150355788/tm1640.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/tm1640.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/tm1640.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/spi.o: Library/spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/spi.o.d 
+	@${RM} ${OBJECTDIR}/Library/spi.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/spi.c  -o ${OBJECTDIR}/Library/spi.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/spi.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/spi.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/adc.o: ../Library/adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/adc.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/adc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/adc.c  -o ${OBJECTDIR}/_ext/150355788/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/step_motor.o: Library/step_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/step_motor.o.d 
+	@${RM} ${OBJECTDIR}/Library/step_motor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/step_motor.c  -o ${OBJECTDIR}/Library/step_motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/step_motor.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/step_motor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1472/hidrostat.o: ../hidrostat.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1472 
-	@${RM} ${OBJECTDIR}/_ext/1472/hidrostat.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/hidrostat.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../hidrostat.c  -o ${OBJECTDIR}/_ext/1472/hidrostat.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/hidrostat.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/hidrostat.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/step_motor2.o: Library/step_motor2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/step_motor2.o.d 
+	@${RM} ${OBJECTDIR}/Library/step_motor2.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/step_motor2.c  -o ${OBJECTDIR}/Library/step_motor2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/step_motor2.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/step_motor2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/timer.o: Library/timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/timer.o.d 
+	@${RM} ${OBJECTDIR}/Library/timer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/timer.c  -o ${OBJECTDIR}/Library/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/timer.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/timer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/tm1640.o: Library/tm1640.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/tm1640.o.d 
+	@${RM} ${OBJECTDIR}/Library/tm1640.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/tm1640.c  -o ${OBJECTDIR}/Library/tm1640.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/tm1640.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/tm1640.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/uart.o: Library/uart.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/uart.o.d 
+	@${RM} ${OBJECTDIR}/Library/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/uart.c  -o ${OBJECTDIR}/Library/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/uart.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/uart_stdio.o: Library/uart_stdio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/uart_stdio.o.d 
+	@${RM} ${OBJECTDIR}/Library/uart_stdio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/uart_stdio.c  -o ${OBJECTDIR}/Library/uart_stdio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/uart_stdio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/uart_stdio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/hidrostat.o: hidrostat.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hidrostat.o.d 
+	@${RM} ${OBJECTDIR}/hidrostat.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  hidrostat.c  -o ${OBJECTDIR}/hidrostat.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/hidrostat.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/hidrostat.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
-${OBJECTDIR}/_ext/150355788/delays.o: ../Library/delays.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/delays.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/delays.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/delays.c  -o ${OBJECTDIR}/_ext/150355788/delays.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/delays.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/delays.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/SPI_main.o: Library/SPI_main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/SPI_main.o.d 
+	@${RM} ${OBJECTDIR}/Library/SPI_main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/SPI_main.c  -o ${OBJECTDIR}/Library/SPI_main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/SPI_main.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/SPI_main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/step_motor2.o: ../Library/step_motor2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/step_motor2.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/step_motor2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/step_motor2.c  -o ${OBJECTDIR}/_ext/150355788/step_motor2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/step_motor2.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/step_motor2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/adc.o: Library/adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/adc.o.d 
+	@${RM} ${OBJECTDIR}/Library/adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/adc.c  -o ${OBJECTDIR}/Library/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/adc.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/rec_generic_driver.o: ../Library/rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/rec_generic_driver.c  -o ${OBJECTDIR}/_ext/150355788/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/delays.o: Library/delays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/delays.o.d 
+	@${RM} ${OBJECTDIR}/Library/delays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/delays.c  -o ${OBJECTDIR}/Library/delays.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/delays.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/delays.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/timer.o: ../Library/timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/timer.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/timer.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/timer.c  -o ${OBJECTDIR}/_ext/150355788/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/timer.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/timer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/maq_de_estados.o: Library/maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/maq_de_estados.o.d 
+	@${RM} ${OBJECTDIR}/Library/maq_de_estados.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/maq_de_estados.c  -o ${OBJECTDIR}/Library/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/maq_de_estados.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/uart.o: ../Library/uart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/uart.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/uart.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/uart.c  -o ${OBJECTDIR}/_ext/150355788/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/uart.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/protocolos.o: Library/protocolos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/protocolos.o.d 
+	@${RM} ${OBJECTDIR}/Library/protocolos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/protocolos.c  -o ${OBJECTDIR}/Library/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/protocolos.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/maq_de_estados.o: ../Library/maq_de_estados.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/maq_de_estados.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/maq_de_estados.c  -o ${OBJECTDIR}/_ext/150355788/maq_de_estados.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/maq_de_estados.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/rec_generic_driver.o: Library/rec_generic_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/rec_generic_driver.o.d 
+	@${RM} ${OBJECTDIR}/Library/rec_generic_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/rec_generic_driver.c  -o ${OBJECTDIR}/Library/rec_generic_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/rec_generic_driver.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/rec_generic_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/protocolos.o: ../Library/protocolos.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/protocolos.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/protocolos.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/protocolos.c  -o ${OBJECTDIR}/_ext/150355788/protocolos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/protocolos.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/protocolos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/servo.o: Library/servo.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/servo.o.d 
+	@${RM} ${OBJECTDIR}/Library/servo.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/servo.c  -o ${OBJECTDIR}/Library/servo.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/servo.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/servo.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/tm1640.o: ../Library/tm1640.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/tm1640.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/tm1640.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/tm1640.c  -o ${OBJECTDIR}/_ext/150355788/tm1640.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/tm1640.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/tm1640.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/spi.o: Library/spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/spi.o.d 
+	@${RM} ${OBJECTDIR}/Library/spi.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/spi.c  -o ${OBJECTDIR}/Library/spi.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/spi.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/spi.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/150355788/adc.o: ../Library/adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/150355788 
-	@${RM} ${OBJECTDIR}/_ext/150355788/adc.o.d 
-	@${RM} ${OBJECTDIR}/_ext/150355788/adc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../Library/adc.c  -o ${OBJECTDIR}/_ext/150355788/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/150355788/adc.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/150355788/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/step_motor.o: Library/step_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/step_motor.o.d 
+	@${RM} ${OBJECTDIR}/Library/step_motor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/step_motor.c  -o ${OBJECTDIR}/Library/step_motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/step_motor.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/step_motor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1472/hidrostat.o: ../hidrostat.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1472 
-	@${RM} ${OBJECTDIR}/_ext/1472/hidrostat.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/hidrostat.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../hidrostat.c  -o ${OBJECTDIR}/_ext/1472/hidrostat.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/hidrostat.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/hidrostat.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Library/step_motor2.o: Library/step_motor2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/step_motor2.o.d 
+	@${RM} ${OBJECTDIR}/Library/step_motor2.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/step_motor2.c  -o ${OBJECTDIR}/Library/step_motor2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/step_motor2.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/step_motor2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/timer.o: Library/timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/timer.o.d 
+	@${RM} ${OBJECTDIR}/Library/timer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/timer.c  -o ${OBJECTDIR}/Library/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/timer.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/timer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/tm1640.o: Library/tm1640.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/tm1640.o.d 
+	@${RM} ${OBJECTDIR}/Library/tm1640.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/tm1640.c  -o ${OBJECTDIR}/Library/tm1640.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/tm1640.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/tm1640.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/uart.o: Library/uart.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/uart.o.d 
+	@${RM} ${OBJECTDIR}/Library/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/uart.c  -o ${OBJECTDIR}/Library/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/uart.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Library/uart_stdio.o: Library/uart_stdio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Library" 
+	@${RM} ${OBJECTDIR}/Library/uart_stdio.o.d 
+	@${RM} ${OBJECTDIR}/Library/uart_stdio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Library/uart_stdio.c  -o ${OBJECTDIR}/Library/uart_stdio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Library/uart_stdio.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/Library/uart_stdio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/hidrostat.o: hidrostat.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hidrostat.o.d 
+	@${RM} ${OBJECTDIR}/hidrostat.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  hidrostat.c  -o ${OBJECTDIR}/hidrostat.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/hidrostat.o.d"        -g -omf=elf -O0 -I"../Library" -I"." -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/hidrostat.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

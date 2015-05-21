@@ -1,3 +1,6 @@
+#ifndef ELAB_H
+#define	ELAB_H
+
 
 #include <stdio.h>			//biblioteca standart IO do C
 #include <libpic30.h>		//definicoes extra para as bibliotecas do C30
@@ -11,8 +14,8 @@
 //
 // timer.c
 //
-void open_timer1(void);
-void open_timer1_for_communication(void);
+extern void open_timer1(void);
+extern void open_timer1_for_communication(void);
 
 
 //
@@ -25,18 +28,18 @@ typedef struct{
 
 extern Communication Serial;
 
-void config_uart2(void);
-int command_received(void);
+extern void configure_uart2(void);
+extern int command_received(void);
 extern int cmd_received;
-void clear_rbuf(void);
-void __attribute__((__interrupt__,auto_psv)) _U2RXInterrupt(void);
+extern void clear_rbuf(void);
+extern void __attribute__((__interrupt__,auto_psv)) _U2RXInterrupt(void);
 
 //
 //adc.c
 //
-void configure_adc();
-void configure_adc_channel(int);
-int read_adc(int);
+extern void configure_adc();
+extern void configure_adc_channel(int);
+extern int read_adc(int);
 
 
 
@@ -66,7 +69,7 @@ int read_adc(int);
 //
 extern char state[20];
 extern int stop;
-void rec_generic_driver(void);
+extern void rec_generic_driver(void);
 
 
 //
@@ -76,19 +79,26 @@ extern int protocolo;
 extern int param_1;
 extern int param_2;
 extern int param_3;
-void maq_de_estados(void);
+extern int param_4;
+extern void maq_de_estados(void);
 
 
 //
 // protocolos.c
 //
 
-void protocolo_1_configuring(void);
+extern void protocolo_1_configuring(void);
 
-void protocolo_1_starting(void);
+extern void protocolo_1_starting(void);
 
-void protocolo_1_started();
+extern void protocolo_1_started();
 
-void stopping();
+extern void stopping();
+
+extern void servo_para(int pw);
 
 
+extern void mede_em(int pw);
+
+
+#endif

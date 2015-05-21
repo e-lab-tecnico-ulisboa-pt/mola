@@ -13,11 +13,9 @@
       <itemPath>timer3.h</itemPath>
       <itemPath>timer4.h</itemPath>
       <itemPath>todo.h</itemPath>
-      <itemPath>uart2.h</itemPath>
       <itemPath>spi.h</itemPath>
       <itemPath>elab.h</itemPath>
       <itemPath>user_defines.h</itemPath>
-      <itemPath>multimode.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -36,13 +34,12 @@
       <itemPath>timer3.c</itemPath>
       <itemPath>timer4.c</itemPath>
       <itemPath>todo.c</itemPath>
-      <itemPath>uart2.c</itemPath>
       <itemPath>spi.c</itemPath>
       <itemPath>maq_de_estados.c</itemPath>
       <itemPath>protocolos.c</itemPath>
       <itemPath>rec_generic_driver.c</itemPath>
-      <itemPath>uart_stdio.c</itemPath>
-      <itemPath>multimode.c</itemPath>
+      <itemPath>timer.c</itemPath>
+      <itemPath>uart.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -63,7 +60,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.11</languageToolchainVersion>
+        <languageToolchainVersion>1.24</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <compileType>
@@ -127,10 +124,6 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
       </C30>
-      <C30-AR>
-      </C30-AR>
-      <C30-AS>
-      </C30-AS>
       <C30-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="boot-eeprom" value="no_eeprom"/>

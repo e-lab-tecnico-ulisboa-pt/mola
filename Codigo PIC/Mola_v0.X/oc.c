@@ -2,7 +2,7 @@
 #include <libpic30.h>		//C30 compiler definitions
 #include <timer.h>		//timer library
 
-#include "uart2.h"
+#include "uart.h"
 //#include "timer2.h"
 #include "oc.h"
 
@@ -14,7 +14,7 @@ void init_OC2(void) {
     OC2CONbits.OCFLT = 0;// acho que não é preciso
     OC2CONbits.OCTSEL = 0; //Timer2 is the clock source for compare 2
     OC2CONbits.OCM = 0x6;// acho que não é preciso
-    OC2RS = 332+358*srv/90; //Duty Time
+    //OC2RS = 332+358*srv/90; //Duty Time
 
 }
 

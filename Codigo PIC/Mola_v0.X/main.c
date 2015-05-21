@@ -6,7 +6,7 @@
 #include <string.h>
 #include <math.h>
 
-#include "uart2.h"
+#include "uart.h"
 #include "io.h"
 #include "timer2.h"
 #include "timer3.h"
@@ -18,54 +18,42 @@
 #include "adc.h"
 #include "spi.h"
 #include "elab.h"
-#include "multimode.h"
 
 
-char inst, n[10];
-int a, b, ninst = 0;
+//char inst, n[10];
+//int a, b, ninst = 0;
 
 int main() {
 
-    escolha = ELAB;
-
-    config_uart2();
     init_io();
+    configure_uart2();
 
     init_TMR2();
     init_OC2();
+    servo_para(0);
 
     init_TMR4();
     //Comunicação
 
     init_ADC();
 
-    //  pull_UART2();
+    //In order to allow initialization correctly before starting RS232 communication.
+    delay_ms(1000);
+    clear_rbuf();
 
-
-    posw = 50;
-    OC2RS = 332 + 358 * srv / 90;
-    printf("teste\n");
+    //inicia no estado STOPED
+    sprintf(state, "STOPED");
+    //No caso de ter havido um reset
+    rec_generic_driver();
+    //Importante iniciar somente depois do rec_generic_driver
+    //Para que não haja msg de IDS antes de ter corrido pelo
+    //menos uma vez o rec_generic_driver.
+    open_timer1_for_communication();
 
     while (1) {
-
-        pull_UART2();
-
-
-        while ((pos < posw - 2) || (pos > posw + 2)) {
-            Read_ADC();
-            delay_ms(10);
-            //printf("A: srv= %i, pos= %i, posw= %i\n", srv, pos, posw);
-
-            srv += (((int) pos)-((int) posw)) / 20;
-            srv += (((int) pos)-((int) posw)) > 0? 1: -1;
-            if (srv > 180)
-                srv = 180;
-            if (srv < 0)
-                srv = 0;
-           // printf("B: srv= %i, pos= %i, posw= %i, delta= %i\n", srv, pos, posw, ((int) pos)-((int) posw));
-            OC2RS = 332 + 358 * srv/90;
-            push_UART2();
-        }
-        push_UART2();
+        maq_de_estados();
+        ClrWdt();
     }
+
+
 }
