@@ -30,7 +30,7 @@ int main() {
 
     init_TMR2();
     init_OC2();
-    servo_para(0);
+    servo_para_mm(0);
 
     init_TMR4();
     //Comunicação
