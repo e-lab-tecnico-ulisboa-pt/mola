@@ -99,5 +99,6 @@ extern void servo_para_mm(int pw);
 extern void servo_para_um(int pw);
 extern void mede_em(int pw);
 
+extern void configure_uart1(void);
 
 #endif

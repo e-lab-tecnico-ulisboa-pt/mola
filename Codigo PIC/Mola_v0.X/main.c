@@ -26,7 +26,7 @@
 int main() {
 
     init_io();
-    configure_uart2();
+    configure_uart1();
 
     init_TMR2();
     init_OC2();
