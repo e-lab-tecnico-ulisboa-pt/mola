@@ -96,7 +96,7 @@ extern void protocolo_1_started();
 extern void stopping();
 
 extern void servo_para_mm(int pw);
-extern void servo_para_um(int pw);
+extern void servo_para_um(long pw);
 extern void mede_em(int pw);
 
 extern void configure_uart1(void);

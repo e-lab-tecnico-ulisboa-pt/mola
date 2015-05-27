@@ -2,6 +2,8 @@
 #include "io.h"
 #include "delays.h"
 #include <stdlib.h>
+
+#define ABS(x) (x>0?x:-x)
 /////////////////
 // Configuring //
 /////////////////
@@ -25,14 +27,16 @@ void protocolo_1_starting(void) {
 /////////////
 
 void protocolo_1_started(void) {
-    signed long delta;
+    long delta;
     int p;
-    signed long l1, l2;
+    long l1, l2;
 
-    l1=1000*param_1;
-    l2=1000*param_2;
+    l1=1000*((long) param_1);
+    l2=1000*((long) param_2);
 
-    delta = (abs(l1) + 2 * abs(l2 - l1)) / param_3;
+
+    delta = (ABS(l1) + 2 * ABS(l2 - l1)) / param_3;
+    
     if(delta == 0)
         delta = 10;
 
@@ -78,7 +82,7 @@ void mede_em(int pw) {
     delay_ms(param_4);
     pos = ADCBUFD; //Calibracao!!!
     fr = (ADCBUFE-512)*20;
-
+    ClrWdt();
     printf("%i\t%i\r", pos, fr);
 }
 
@@ -86,6 +90,6 @@ void servo_para_mm(int pw) {
     OC2RS = 332 + (287 * (pw + HALFLENGTH)) / (HALFLENGTH);
 }
 
-void servo_para_um(int pw) {
+void servo_para_um(long pw) {
     OC2RS = 332 + (pw + 20000)/ 70;
 }
