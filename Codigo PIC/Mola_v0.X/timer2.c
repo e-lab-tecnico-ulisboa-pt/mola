@@ -14,10 +14,10 @@ void init_TMR2(void) {
 
     T2CON = 0; // Clear the Timer 2 configuration
     TMR2 = 0x0000; // Sets timer value to zero
-    PR2 = 9226; // Timer Period
+    PR2 = 36904; // Timer Period
 
     IEC0bits.T2IE = 1; //Enable interrupt
-    T2CONbits.TCKPS = 2; // internal Tcy divider
+    T2CONbits.TCKPS = 0; // internal Tcy divider
     T2CONbits.TON = 1; // turn on timer 2
     IFS0bits.T2IF = 0;
 

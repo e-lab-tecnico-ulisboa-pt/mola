@@ -87,9 +87,9 @@ void mede_em(int pw) {
 }
 
 void servo_para_mm(int pw) {
-    OC2RS = 332 + (287 * (pw + HALFLENGTH)) / (HALFLENGTH);
+OC2RS = 1200 + (1200 * (pw + HALFLENGTH)) / (HALFLENGTH);
 }
 
 void servo_para_um(long pw) {
-    OC2RS = 332 + (pw + 20000)/ 70;
+    OC2RS = 1200 + (pw + 20000)/ 17;
 }

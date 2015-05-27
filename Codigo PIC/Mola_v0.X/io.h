@@ -24,7 +24,7 @@
 
 #define HALFLENGTH 20 //mm
 
-#define FCY ((long) 29491)  //instruction frequency in 10^2 Hz
+#define FCY ((long) 1843)  //instruction frequency in 10^2 Hz
 
 extern void init_io(void);
 

@@ -4,7 +4,7 @@
 #include "io.h"
 
 //Configuration bits
-_FOSC(CSW_FSCM_OFF & XT_PLL16); //oscilator at 16x PLL
+_FOSC(CSW_FSCM_OFF & XT); //oscilator at 16x PLL
 _FWDT(WDT_ON & WDTPSA_512 & WDTPSB_16); //watchdog timer (interval of ~ 16s)
 //_FWDT(WDT_OFF);
 

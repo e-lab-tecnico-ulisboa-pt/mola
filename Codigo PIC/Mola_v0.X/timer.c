@@ -55,7 +55,7 @@ void open_timer1_for_communication(void){	// Timer1
 	T1CONbits.TGATE=0;	// 0-Gated time accumulation disabled
 						// 1-Gated time accumulation enabled	
 	
-	T1CONbits.TCKPS=3;	// 0- 1:1 prescale value
+	T1CONbits.TCKPS=2;	// 0- 1:1 prescale value
 						// 1- 1:8 prescale value
 						// 2- 1:64 prescale value
 						// 3- 1:256 prescale value
@@ -64,7 +64,7 @@ void open_timer1_for_communication(void){	// Timer1
 						// 1-External clock from pin T1CK
 
 //PR1: 16-bit period register associated with the timer
-	PR1=0xFFFF;	//Ciclos correspondente ao tempo de aprox. 0.5 segundo para XT_PLL16
+	PR1=0x4FFF;	//Ciclos correspondente ao tempo de aprox. 0.5 segundo para XT_PLL16
 
 //Timer Interrupts configuration
 	_T1IF=0;	// 0-Interrupt request has not occurred
