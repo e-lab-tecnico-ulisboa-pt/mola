@@ -9,8 +9,9 @@
 /////////////////
 
 void protocolo_1_configuring(void) {
+    T2CONbits.TON = 1;
     servo_para_mm(0);
-
+    LIGHT = ON;
 }
 
 
@@ -74,15 +75,16 @@ void protocolo_1_started(void) {
 void stopping(void) {
     servo_para_mm(0);
     LIGHT = OFF;
+    T2CONbits.TON = 0;
 }
 
 void mede_em(int pw) {
     int pos, fr;
     servo_para_um(pw);
     delay_ms(param_4);
-    pos = ADCBUFD; //Calibracao!!!
-    fr = (ADCBUFE-512)*20;
-    ClrWdt();
+    pos = (ADCBUFD-512)*39;
+    fr = (ADCBUFE-512)*2;
+    ClrWdt();   //Considerar retirar
     printf("%i\t%i\r", pos, fr);
 }
 
