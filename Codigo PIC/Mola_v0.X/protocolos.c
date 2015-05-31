@@ -9,7 +9,7 @@
 /////////////////
 
 void protocolo_1_configuring(void) {
-    T2CONbits.TON = 1;
+    //T2CONbits.TON = 1;
     servo_para_mm(0);
     LIGHT = ON;
 }
@@ -75,7 +75,7 @@ void protocolo_1_started(void) {
 void stopping(void) {
     servo_para_mm(0);
     LIGHT = OFF;
-    T2CONbits.TON = 0;
+    //T2CONbits.TON = 0;
 }
 
 void mede_em(int pw) {

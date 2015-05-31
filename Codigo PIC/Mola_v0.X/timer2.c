@@ -18,7 +18,7 @@ void init_TMR2(void) {
 
     IEC0bits.T2IE = 1; //Enable interrupt
     T2CONbits.TCKPS = 0; // internal Tcy divider
-    //T2CONbits.TON = 1; // turn on timer 2
+    T2CONbits.TON = 1; // turn on timer 2
     IFS0bits.T2IF = 0;
 
 }
