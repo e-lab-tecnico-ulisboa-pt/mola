@@ -26,11 +26,11 @@
 int main() {
 
     init_io();
-    configure_uart1();
+    configure_uart2();
 
     init_TMR2();
     init_OC2();
-    servo_para_mm(0);
+    //servo_para_mm(0);
 
     init_TMR4();
     //Comunicação
